@@ -14,7 +14,7 @@ a program.
 ## What Is a REPL?
 
 You've already been introduced to REPLs through using IRB (Interactive Ruby).
-REPL stands for *Read, Evaluate, Print, Loop*. It is an interactive programming
+REPL stands for _Read, Evaluate, Print, Loop_. It is an interactive programming
 environment that takes a user's input, evaluates it and returns the result to
 the user.
 
@@ -43,7 +43,7 @@ context of the code, from outside your file.
 
 So when you place the line `binding.pry` in your code, that line will get
 interpreted at runtime (as your program is executed). When the interpreter hits
-that line, your program will actually *freeze* and your terminal will turn into
+that line, your program will actually _freeze_ and your terminal will turn into
 a REPL that exists right in the middle of your program, wherever you added the
 `binding.pry` line.
 
@@ -70,21 +70,20 @@ def prying_into_the_method
     puts inside_the_method
     puts "We're about to stop because of pry!"
     binding.pry
-    this_variable_hasnt_been_interpreted_yet = "The program froze before it could read me!" 
+    this_variable_hasnt_been_interpreted_yet = "The program froze before it could read me!"
     puts this_variable_hasnt_been_interpreted_yet
 end
 
 prying_into_the_method
 ```
 
-Here we are requiring `pry`, *which you must do to use pry*, defining a method,
+Here we are requiring `pry`, _which you must do to use pry_, defining a method,
 and then calling that method.
 
-In the directory of this repo, in your terminal, run the file by typing `ruby
-lib/pry_is_awesome.rb`. Now, look at your terminal. You should see something
+In the directory of this repo, in your terminal, run the file by typing `ruby lib/pry_is_awesome.rb`. Now, look at your terminal. You should see something
 like this:
 
-```ruby
+```txt
   3: def prying_into_the_method
      4:     inside_the_method = "We're inside the method"
      5:     puts inside_the_method
@@ -96,13 +95,13 @@ like this:
 [1] pry(main)>
 ```
 
-You have frozen your program *as it executes* and are now inside a REPL *inside
-your program*. You basically just stopped time! How cool is that?
+You have frozen your program _as it executes_ and are now inside a REPL _inside
+your program_. You basically just stopped time! How cool is that?
 
 In the terminal, in your pry console, type the variable name `inside_the_method`
 and hit enter. You should see a return value of `"We're inside the method"`
 
-You are able to explore the data *inside* the method in which you've placed your
+You are able to explore the data _inside_ the method in which you've placed your
 binding.
 
 Now, in the terminal, in your pry console, type the variable name
@@ -116,7 +115,7 @@ program will continue to execute.
 
 ## Instructions Part II: Using Pry to Debug
 
-In addition to *exploring* code inside Pry, you can also manipulate variables
+In addition to _exploring_ code inside Pry, you can also manipulate variables
 and try code out. This is where Pry really becomes helpful for debugging. If you
 have a method that isn't doing what it's supposed to do, instead of making
 changes in your text editor and running the tests over and over until you get it
@@ -131,7 +130,7 @@ and cloned down onto your computer, you'll see a `spec` folder containing a file
 In `pry_debugging.rb`, we have a broken method. Run `learn test` to see the
 failing test. You should see the following:
 
-```rspec
+```txt
   1) #plus_two takes in a number as an argument and returns the sum of that number and 2
      Failure/Error: expect(plus_two(3)).to eq(5)
 
@@ -157,7 +156,7 @@ end
 ```
 
 So while our method is adding 2 to `num` on the second line, it appears that it
-is not *updating* `num`. We have Pry required at the top of our
+is not _updating_ `num`. We have Pry required at the top of our
 `spec/pry_debugging_spec.rb` file so we can use it to verify this. Let's place a
 `binding.pry` in our code, right after that line:
 
@@ -172,7 +171,7 @@ end
 Now, run the test suite again and drop into your Pry console. Your terminal
 should look like this:
 
-```ruby
+```txt
 From: /Users/sophiedebenedetto/Desktop/Dev/Ruby-Methods_and_Variables/pry-readme/lib/pry_debugging.rb @ line 4 Object#plus_two:
 
     1: def plus_two(num)
@@ -187,7 +186,7 @@ From: /Users/sophiedebenedetto/Desktop/Dev/Ruby-Methods_and_Variables/pry-readme
 Let's check our current return value by typing `num` at the Pry prompt. You
 should see something like this:
 
-```ruby
+```txt
 [1] pry(#<RSpec::ExampleGroups::PlusTwo>)> num
 => 3
 [2] pry(#<RSpec::ExampleGroups::PlusTwo>)>
@@ -197,7 +196,7 @@ By checking the value of the variable inside our pry console, we can confirm
 that `num` is still equal to `3` and, as a result, the method is returning `3`.
 
 How can we modify the code on line 2 so that the method behaves in the expected
-way? We need to *update* the value of our `num` variable so that it's equal to
+way? We need to _update_ the value of our `num` variable so that it's equal to
 the sum of itself and 2. Play around inside your Pry console: try code that you
 think will update `num` as needed, then check the value of `num` to see if it
 worked. Once you figure it out you can type `exit` in your terminal to get out
@@ -210,5 +209,5 @@ data structures, you'll find it can be a very helpful tool.
 
 ## Resources
 
-* [Pry documentation](http://pry.github.io/)
-* [Debugging with Pry: A Beginner's Guide](https://dev.to/elimerrell/debugging-with-pry-a-beginners-guide-3p99)
+- [Pry documentation](http://pry.github.io/)
+- [Debugging with Pry: A Beginner's Guide](https://dev.to/elimerrell/debugging-with-pry-a-beginners-guide-3p99)
